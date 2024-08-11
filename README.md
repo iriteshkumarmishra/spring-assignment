@@ -1,66 +1,188 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Spring Assignment
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a web application built with PHP, Laravel, and Vue.js for managing users. It includes features such as user creation, sorting, and more.
 
-## About Laravel
+## Prerequisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Ensure you have the following installed:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [PHP](https://www.php.net/) (version 8.0 or higher recommended)
+- [Composer](https://getcomposer.org/) (for PHP dependency management)
+- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [Laravel](https://laravel.com/) (ensure you have the Laravel CLI if needed)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Getting Started
 
-## Learning Laravel
+### Backend (Laravel)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clone the Repository
+git clone https://github.com/iriteshkumarmishra/spring-assignment.git && cd spring-assignment
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. Set Up Environment
+Copy the example environment file and update the environment variables:
+cp .env.example .env
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Install PHP Dependencies
+composer install
 
-## Laravel Sponsors
+4. Generate Application Key
+php artisan key:generate
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. Run Migrations
+php artisan migrate
 
-### Premium Partners
+6. Start the Laravel Development Server
+php artisan serve
+The backend will be available at http://localhost:8000.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+7. Install Node.js Dependencies
+npm install
 
-## Contributing
+8. Run the Development Server
+npm run dev
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+Features
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+	•	User Creation Form: A modal popup for adding new users with fields for name, age, address, state, city, and zip.
+	•	User List: Displays a list of users with sorting functionality by name and points.
+	•	Debounced Keyboard Event: 700 ms debounce time for keyboard click events.
 
-## Security Vulnerabilities
+Usage
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+	•	Create User: Click on the “Add User” button to open the user creation form modal. Fill in the details and submit to create a new user.
+	•	Sort Users: Click on the column headers (Name or Points) to sort the list.
 
-## License
+Testing
+Backend (Laravel)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+To run Laravel unit tests:
+php artisan test
+
+
+**Endpoints**
+
+1. User Lists
+GET api/users?page_size=25&page_number=1&sort_key=points&sort_order=desc&name=ce
+Response : [
+  {
+    "id": 173,
+    "name": "Tessie Flatley IV",
+    "age": 54,
+    "points": 98,
+    "address_id": 155,
+    "qr_code_path": null,
+    "created_at": "2024-08-11T20:45:21.000000Z",
+    "updated_at": "2024-08-11T20:45:21.000000Z"
+  },
+  {
+    "id": 185,
+    "name": "Israel Schuster",
+    "age": 24,
+    "points": 98,
+    "address_id": 167,
+    "qr_code_path": null,
+    "created_at": "2024-08-11T20:45:21.000000Z",
+    "updated_at": "2024-08-11T20:45:21.000000Z"
+  },
+....
+   ]
+
+3. Add/Remove points form user
+PATCH /api/users/<user-id>/points
+Response : {
+    "message": "Points updated successfully.",
+    "user": {
+        "id": 200,
+        "name": "Benjamin Swaniawski",
+        "age": 54,
+        "points": 101,
+        "address_id": 182,
+        "qr_code_path": null,
+        "created_at": "2024-08-11T20:45:21.000000Z",
+        "updated_at": "2024-08-11T22:02:01.000000Z"
+    }
+}
+
+4. Delete a user
+DELETE api/users/200
+Response status : 204 No Content
+
+6. Get user details
+GET api/users/173
+Response : {
+  "user": {
+    "id": 173,
+    "name": "Tessie Flatley IV",
+    "age": 54,
+    "points": 98,
+    "address_id": 155,
+    "qr_code_path": null,
+    "created_at": "2024-08-11T20:45:21.000000Z",
+    "updated_at": "2024-08-11T20:45:21.000000Z",
+    "address": {
+      "id": 155,
+      "address": "64880 Gusikowski Groves Apt. 559",
+      "city": "Lake Beryl",
+      "state": "OH",
+      "zip": "04949-3881",
+      "country": "FO",
+      "created_at": "2024-08-12T02:15:21.000000Z"
+    }
+  },
+  "address": "64880 Gusikowski Groves Apt. 559, Lake Beryl, OH 04949"
+}
+
+7. Add a user
+POST api/users
+Payload : {
+  "name": "Test",
+  "age": 34,
+  "address": "Lane",
+  "city": "Phoenix",
+  "state": "AR",
+  "zip": "12345",
+  "country": "USA"
+}
+
+Response : {
+    "name": "Test",
+    "age": 34,
+    "address_id": 205,
+    "updated_at": "2024-08-11T22:06:47.000000Z",
+    "created_at": "2024-08-11T22:06:47.000000Z",
+    "id": 224
+}
+
+8. Users info grouped by score
+GET api/users/grouping/score
+Response : {
+    "98": {
+        "names": [
+            "Tessie Flatley IV",
+            "Israel Schuster"
+        ],
+        "average_age": 39
+    },
+    "3": {
+        "names": [
+            "Miss Makayla Koss"
+        ],
+        "average_age": 95
+    },
+    "60": {
+        "names": [
+            "Aisha Marvin",
+            "Agustin Fahey",
+            "Prof. Marisa Treutel"
+        ],
+        "average_age": 63.67
+    },
+   }
+
+
+   
+
+
+   
