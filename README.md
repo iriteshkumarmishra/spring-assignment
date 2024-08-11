@@ -33,13 +33,17 @@ php artisan key:generate
 php artisan migrate
 
 6. Start the Laravel Development Server
-php artisan serve
-The backend will be available at http://localhost:8000.
+   ```
+   php artisan storage:link
+   php artisan db:seed --class=UserDatabaseSeeder
+   php artisan serve
 
-7. Install Node.js Dependencies
+   The backend will be available at http://localhost:8000.
+
+8. Install Node.js Dependencies
 npm install
 
-8. Run the Development Server
+9. Run the Development Server
 npm run dev
 
 
@@ -65,7 +69,9 @@ php artisan test
 
 1. User Lists
 GET api/users?page_size=25&page_number=1&sort_key=points&sort_order=desc&name=ce
-Response : [
+Response :
+```
+[
   {
     "id": 173,
     "name": "Tessie Flatley IV",
@@ -88,9 +94,11 @@ Response : [
   },
 ....
    ]
+```
 
 3. Add/Remove points form user
 PATCH /api/users/<user-id>/points
+```
 Response : {
     "message": "Points updated successfully.",
     "user": {
@@ -104,13 +112,17 @@ Response : {
         "updated_at": "2024-08-11T22:02:01.000000Z"
     }
 }
+```
 
-4. Delete a user
+5. Delete a user
 DELETE api/users/200
+```
 Response status : 204 No Content
+```
 
 6. Get user details
 GET api/users/173
+```
 Response : {
   "user": {
     "id": 173,
@@ -133,9 +145,11 @@ Response : {
   },
   "address": "64880 Gusikowski Groves Apt. 559, Lake Beryl, OH 04949"
 }
+```
 
-7. Add a user
+8. Add a user
 POST api/users
+```
 Payload : {
   "name": "Test",
   "age": 34,
@@ -154,9 +168,11 @@ Response : {
     "created_at": "2024-08-11T22:06:47.000000Z",
     "id": 224
 }
+```
 
 8. Users info grouped by score
 GET api/users/grouping/score
+```
 Response : {
     "98": {
         "names": [
@@ -180,8 +196,13 @@ Response : {
         "average_age": 63.67
     },
    }
+```
 
+Commands and Jobs
 
+1. php artisan user:reset-points : To reset the score of all users.
+2. DeclareWinnerJob : To declare a winner on leader board
+3. GenerateQrCodeJob : To create QR code and store it in public directory and store urkl in user table.
    
 
 
