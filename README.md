@@ -8,9 +8,10 @@ Ensure you have the following installed:
 
 - [PHP](https://www.php.net/) (version 8.0 or higher recommended)
 - [Composer](https://getcomposer.org/) (for PHP dependency management)
-- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- [Node.js](https://nodejs.org/) (version 22 or higher recommended)
 - [npm](https://www.npmjs.com/) (comes with Node.js)
 - [Laravel](https://laravel.com/) (ensure you have the Laravel CLI if needed)
+- [Vuejs](https://vuejs.org/) (ensure you have the Vuejs 3 or higher)
 
 ## Getting Started
 
@@ -45,6 +46,8 @@ npm install
 
 9. Run the Development Server
 npm run dev
+
+Note : http://localhost:8000/user-lists, Open this URL to see the leader board
 
 
 Features
